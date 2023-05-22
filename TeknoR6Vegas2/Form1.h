@@ -73,6 +73,8 @@ namespace TeknoR6Vegas2 {
 	private: System::Windows::Forms::CheckBox^  checkBox4;
 	private: System::Windows::Forms::CheckBox^  checkBox6;
 	private: System::Windows::Forms::CheckBox^  checkBox7;
+	private: System::Windows::Forms::CheckBox^ disableRespawnsCheckbox;
+
 
 
 	private:
@@ -88,7 +90,7 @@ namespace TeknoR6Vegas2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Form1::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -96,6 +98,7 @@ namespace TeknoR6Vegas2 {
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
+			this->disableRespawnsCheckbox = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox7 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox6 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
@@ -109,7 +112,7 @@ namespace TeknoR6Vegas2 {
 			this->groupBox3 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->groupBox3->SuspendLayout();
 			this->groupBox2->SuspendLayout();
@@ -118,7 +121,7 @@ namespace TeknoR6Vegas2 {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
 			this->pictureBox1->Location = System::Drawing::Point(1, 0);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(1028, 112);
@@ -131,8 +134,10 @@ namespace TeknoR6Vegas2 {
 			this->comboBox1->DisplayMember = L"16";
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(15) {L"2", L"3", L"4", L"5", L"6", L"7", L"8", L"9", 
-				L"10", L"11", L"12", L"13", L"14", L"15", L"16"});
+			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(15) {
+				L"2", L"3", L"4", L"5", L"6", L"7", L"8", L"9",
+					L"10", L"11", L"12", L"13", L"14", L"15", L"16"
+			});
 			this->comboBox1->Location = System::Drawing::Point(9, 50);
 			this->comboBox1->Name = L"comboBox1";
 			this->comboBox1->Size = System::Drawing::Size(218, 21);
@@ -163,12 +168,14 @@ namespace TeknoR6Vegas2 {
 			this->comboBox2->DisplayMember = L"16";
 			this->comboBox2->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(98) {L"2", L"3", L"4", L"5", L"6", L"7", L"8", L"9", 
-				L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24", L"25", L"26", L"27", 
-				L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44", L"45", 
-				L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59", L"60", L"61", L"62", L"63", 
-				L"64", L"65", L"66", L"67", L"68", L"69", L"70", L"71", L"72", L"73", L"74", L"75", L"76", L"77", L"78", L"79", L"90", L"81", 
-				L"82", L"83", L"84", L"85", L"86", L"87", L"88", L"89", L"90", L"91", L"92", L"93", L"94", L"95", L"96", L"97", L"98", L"99"});
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(98) {
+				L"2", L"3", L"4", L"5", L"6", L"7", L"8", L"9",
+					L"10", L"11", L"12", L"13", L"14", L"15", L"16", L"17", L"18", L"19", L"20", L"21", L"22", L"23", L"24", L"25", L"26", L"27",
+					L"28", L"29", L"30", L"31", L"32", L"33", L"34", L"35", L"36", L"37", L"38", L"39", L"40", L"41", L"42", L"43", L"44", L"45",
+					L"46", L"47", L"48", L"49", L"50", L"51", L"52", L"53", L"54", L"55", L"56", L"57", L"58", L"59", L"60", L"61", L"62", L"63",
+					L"64", L"65", L"66", L"67", L"68", L"69", L"70", L"71", L"72", L"73", L"74", L"75", L"76", L"77", L"78", L"79", L"90", L"81",
+					L"82", L"83", L"84", L"85", L"86", L"87", L"88", L"89", L"90", L"91", L"92", L"93", L"94", L"95", L"96", L"97", L"98", L"99"
+			});
 			this->comboBox2->Location = System::Drawing::Point(9, 90);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(218, 21);
@@ -186,6 +193,7 @@ namespace TeknoR6Vegas2 {
 			// 
 			// groupBox1
 			// 
+			this->groupBox1->Controls->Add(this->disableRespawnsCheckbox);
 			this->groupBox1->Controls->Add(this->checkBox7);
 			this->groupBox1->Controls->Add(this->checkBox6);
 			this->groupBox1->Controls->Add(this->checkBox5);
@@ -204,6 +212,16 @@ namespace TeknoR6Vegas2 {
 			this->groupBox1->TabIndex = 7;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Host options";
+			// 
+			// disableRespawnsCheckbox
+			// 
+			this->disableRespawnsCheckbox->AutoSize = true;
+			this->disableRespawnsCheckbox->Location = System::Drawing::Point(152, 158);
+			this->disableRespawnsCheckbox->Name = L"disableRespawnsCheckbox";
+			this->disableRespawnsCheckbox->Size = System::Drawing::Size(114, 17);
+			this->disableRespawnsCheckbox->TabIndex = 17;
+			this->disableRespawnsCheckbox->Text = L"Disable Respawns";
+			this->disableRespawnsCheckbox->UseVisualStyleBackColor = true;
 			// 
 			// checkBox7
 			// 
@@ -264,8 +282,10 @@ namespace TeknoR6Vegas2 {
 			this->comboBox3->DisplayMember = L"16";
 			this->comboBox3->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox3->FormattingEnabled = true;
-			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(16) {L"1", L"2", L"3", L"4", L"5", L"6", L"7", L"8", 
-				L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16"});
+			this->comboBox3->Items->AddRange(gcnew cli::array< System::Object^  >(16) {
+				L"1", L"2", L"3", L"4", L"5", L"6", L"7", L"8",
+					L"9", L"10", L"11", L"12", L"13", L"14", L"15", L"16"
+			});
 			this->comboBox3->Location = System::Drawing::Point(10, 130);
 			this->comboBox3->Name = L"comboBox3";
 			this->comboBox3->Size = System::Drawing::Size(218, 21);
@@ -305,7 +325,7 @@ namespace TeknoR6Vegas2 {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->Location = System::Drawing::Point(14, 13);
 			this->label5->Name = L"label5";
@@ -337,7 +357,7 @@ namespace TeknoR6Vegas2 {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(7, 20);
+			this->checkBox1->Location = System::Drawing::Point(9, 19);
 			this->checkBox1->Name = L"checkBox1";
 			this->checkBox1->Size = System::Drawing::Size(158, 17);
 			this->checkBox1->TabIndex = 0;
@@ -349,7 +369,7 @@ namespace TeknoR6Vegas2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"$this.BackgroundImage")));
+			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->ClientSize = System::Drawing::Size(1023, 577);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox3);
@@ -361,7 +381,7 @@ namespace TeknoR6Vegas2 {
 			this->Name = L"Form1";
 			this->Text = L"Reaver\'s Rainbow Six Vegas 2 Toolkit v4.0 / www.TeknoGods.com";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
 			this->groupBox3->ResumeLayout(false);
@@ -512,6 +532,14 @@ private: void MyThread()
 					//WriteProcessMemory(pi.hProcess, (LPVOID)0x10C8BF50, "\x8B\x44\x24\x04\x6B\xC0\x10\xEB\x06", 9, 0);
 					//WriteProcessMemory(pi.hProcess, (LPVOID)0x10C8BF56, &myval, 1, 0);
 				}
+
+				// Restarting after one death
+				if (disableRespawnsCheckbox->Checked == true)
+				{
+					WriteProcessMemory(pi.hProcess, (LPVOID)0x10D3FAF0, "\xEB\x3E", 2, 0);
+					WriteProcessMemory(pi.hProcess, (LPVOID)0x10D3FAC7, "\x7F\x7B", 2, 0);
+				}
+
 				// Player Cap
 				if(checkBox4->Checked == true)
 				{
